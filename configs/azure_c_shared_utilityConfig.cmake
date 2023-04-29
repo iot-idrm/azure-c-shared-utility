@@ -3,7 +3,9 @@
 
 if(UNIX)
     include(CMakeFindDependencyMacro)
-    find_dependency(CURL)
+    if(${use_http})
+        find_dependency(CURL)
+    endif()
 endif()
 
 include("${CMAKE_CURRENT_LIST_DIR}/azure_c_shared_utilityTargets.cmake")
