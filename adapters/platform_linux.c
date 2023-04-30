@@ -61,9 +61,11 @@ const IO_INTERFACE_DESCRIPTION* platform_get_default_tlsio(void)
     return tlsio_mbedtls_get_interface_description();
 #elif USE_BEARSSL
     return tlsio_bearssl_get_interface_description();
-#else
+#elif USE_OPENSSL
     // Default to openssl
     return tlsio_openssl_get_interface_description();
+#else
+    return NULL;
 #endif
 }
 
