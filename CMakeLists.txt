@@ -34,6 +34,13 @@ if(${use_custom_heap})
     add_definitions(-DGB_USE_CUSTOM_HEAP)
 endif()
 
+if (NOT use_http)
+  add_definitions(-DDONT_USE_UPLOADTOBLOB)
+  message ("##### add DONT_USE_UPLOADTOBLOB")
+else()
+    message ("###### NO DONT_USE_UPLOADTOBLOB")
+endif()
+
 if(WIN32)
     option(use_schannel "set use_schannel to ON if schannel is to be used, set to OFF to not use schannel" ON)
     option(use_openssl "set use_openssl to ON if openssl is to be used, set to OFF to not use openssl" OFF)
